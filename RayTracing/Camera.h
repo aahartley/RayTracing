@@ -4,10 +4,10 @@
 class Camera {
 public:
 	Camera() {
-        auto aspect_ratio = 16.0 / 9.0;
-        auto viewport_height = 2.0f;
-        auto viewport_width = aspect_ratio * viewport_height;
-        auto focal_length = 1.0f;
+        float aspect_ratio = 16.0f / 9.0f;
+        float viewport_height = 2.0f;
+        float viewport_width = aspect_ratio * viewport_height;
+        float focal_length = 1.0f;
 
         origin = Point3(0, 0, 0);
         horizontal = Vec3(viewport_width, 0.0f, 0.0f);

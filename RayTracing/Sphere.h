@@ -15,16 +15,16 @@ public:
 
 bool Sphere::hit(const Ray& r, float tMin, float tMax, HitRecord& rec)const {
     Vec3 oc = r.origin - center;
-    auto a = r.direction.magnitudeSquared();
-    auto half_b = dot(oc, r.direction);
-    auto c = oc.magnitudeSquared() - radius * radius;
+    float a = r.direction.magnitudeSquared();
+    float half_b = dot(oc, r.direction);
+    float c = oc.magnitudeSquared() - radius * radius;
 
-    auto discriminant = half_b * half_b - a * c;
+    float discriminant = half_b * half_b - a * c;
     if (discriminant < 0) return false;
-    auto sqrtd = sqrt(discriminant);
+    float sqrtd = sqrt(discriminant);
 
     // Find the nearest root that lies in the acceptable range.
-    auto root = (-half_b - sqrtd) / a;
+    float root = (-half_b - sqrtd) / a;
     if (root < tMin || tMax < root) {
         root = (-half_b + sqrtd) / a;
         if (root < tMin || tMax < root)

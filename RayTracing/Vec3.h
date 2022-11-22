@@ -27,7 +27,7 @@ class Vec3 {
 			return *this *= 1.0f / t;
 		}
 		float magnitude() const {
-			return std::sqrt(magnitudeSquared());
+			return std::sqrtf(magnitudeSquared());
 		}
 		float magnitudeSquared() const {
 			return (x * x + y * y + z * z);
@@ -82,11 +82,8 @@ inline float dot(const Vec3& u, const Vec3& v) {
 }
 inline Vec3 cross(const Vec3& u, const Vec3& v) {
 	return Vec3(u.y * v.z - u.z * v.y,
-			(u.z * v.x - u.x * v.z),
-			u.x * v.y - u.y * v.x);
-	//return Vec3(u.y * v.z - u.z * v.y,
-	//			-(u.x * v.z - u.z * v.x),
-	//			u.x * v.y - u.y * v.x);
+				-(u.x * v.z - u.z * v.x),
+				u.x * v.y - u.y * v.x);
 }
 inline Vec3 unitVector(const Vec3& v) {
 	return v /v.magnitude();
