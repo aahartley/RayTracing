@@ -9,9 +9,9 @@ void write_color(std::ostream& out, Color pixelColor, int samplesPerPixel, int& 
 
     // Divide the color by the number of samples and gamma correct, gamma =2.0
     float scale = 1.0f / samplesPerPixel;
-    r *= (scale);
-    g *= (scale);
-    b *= (scale);
+    r = sqrt(scale * r);
+    g = sqrt(scale * g);
+    b = sqrt(scale * b);
 
     pixels[index++] = static_cast<int>(256 * clamp(r, 0.0f, 0.999f));
     pixels[index++] = static_cast<int>(256 * clamp(g, 0.0f, 0.999f));

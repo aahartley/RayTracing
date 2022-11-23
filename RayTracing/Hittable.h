@@ -1,9 +1,11 @@
 #pragma once
 #include "Ray.h"
+class Material;
 
 struct HitRecord {
 	Point3 p;
 	Vec3 normal;
+	shared_ptr<Material> matPtr;
 	float t;
 	bool frontFace;
 
